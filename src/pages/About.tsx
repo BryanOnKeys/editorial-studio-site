@@ -10,26 +10,26 @@ import workspace from "@/assets/workspace.jpg";
 const values = [
   {
     number: "01",
-    title: "Clarity over complexity",
-    description: "The best solutions are often the simplest. I distill ideas to their essence, removing noise to reveal what matters.",
+    title: "Utility before hype",
+    description: "A product should solve a real problem and make its value obvious through use, focusing on function over trend.",
   },
   {
     number: "02",
-    title: "Strategy before aesthetics",
-    description: "Beautiful design without purpose is decoration. Every visual decision is grounded in strategic thinking.",
+    title: "Privacy by architecture",
+    description: "Prefer local execution, data minimization, and transparent handling of files so user data remains strictly on-device.",
   },
   {
     number: "03",
-    title: "Long-term thinking",
-    description: "I create systems designed to evolve. Brands built on strong foundations adapt and grow with their organizations.",
+    title: "Accessible by default",
+    description: "Make important workflows approachable for developers, students, and creators without artificial paywalls or barriers.",
   },
 ];
 
 const recognition = [
-  { name: "Communication Arts", type: "Award of Excellence", year: "2024" },
-  { name: "Brand New", type: "Best Identities", year: "2023" },
-  { name: "AIGA", type: "50 Books/50 Covers", year: "2023" },
-  { name: "Design Week", type: "Rising Star", year: "2022" },
+  { name: "LadeStack Platform", type: "Developer Ecosystem & Hub", year: "2024" },
+  { name: "GB Coder", type: "Browser-Native IDE & Sandbox", year: "2024" },
+  { name: "LS PDF & MD2PDF", type: "Privacy-First Document Suite", year: "2024" },
+  { name: "Open Source Utilities", type: "GitHub Tooling & Web Apps", year: "2024" },
 ];
 
 export default function About() {

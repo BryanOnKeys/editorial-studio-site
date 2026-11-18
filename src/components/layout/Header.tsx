@@ -109,7 +109,7 @@ export function Header() {
               className="font-serif text-xl text-ink"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Elena Vance
+              Girish Lade
             </Link>
             <button
               onClick={() => setIsMobileMenuOpen(false)}

@@ -5,7 +5,7 @@ import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { InvestmentEstimator } from "@/components/shared/InvestmentEstimator";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-const projectTypes = ["Brand Identity", "Visual Design System", "Art Direction", "Brand Guidelines", "Other"];
+const projectTypes = ["UI/UX Design", "Frontend Web Development", "Full-Stack Application", "Developer Tool / Utility", "Other"];
 const budgetRanges = ["Under $25,000", "$25,000 – $50,000", "$50,000 – $100,000", "$100,000+", "Not sure yet"];
 const referralSources = ["Referral", "Social Media", "Search Engine", "Press / Publication", "Other"];
 
@@ -68,7 +68,7 @@ export default function Contact() {
     } catch (err) {
       toast({
         title: "Something went wrong",
-        description: "Your message couldn't be sent. Please try again or email hello@elenavance.com.",
+        description: "Your message couldn't be sent. Please try again or email admin@ladestack.in.",
         variant: "destructive",
       });
     } finally {
@@ -193,27 +193,27 @@ your project.</h1>
                 <div className="lg:sticky lg:top-32 space-y-10">
                   <div>
                     <p className="eyebrow mb-3">Email</p>
-                    <a href="mailto:hello@elenavance.com" className="text-ink hover:opacity-70 transition-opacity duration-300">
-                      hello@elenavance.com
+                    <a href="mailto:admin@ladestack.in" className="text-ink hover:opacity-70 transition-opacity duration-300">
+                      admin@ladestack.in
                     </a>
                   </div>
 
                   <div>
                     <p className="eyebrow mb-3">Location</p>
-                    <p className="text-ink">New York, NY</p>
+                    <p className="text-ink">Pune, Maharashtra, India</p>
                   </div>
 
                   <div>
                     <p className="eyebrow mb-3">Social</p>
                     <div className="space-y-2">
-                      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="block text-ink hover:opacity-70 transition-opacity duration-300">
-                        Instagram
+                      <a href="https://github.com/girishlade111" target="_blank" rel="noopener noreferrer" className="block text-ink hover:opacity-70 transition-opacity duration-300">
+                        GitHub
                       </a>
-                      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="block text-ink hover:opacity-70 transition-opacity duration-300">
+                      <a href="https://linkedin.com/in/girish-lade/" target="_blank" rel="noopener noreferrer" className="block text-ink hover:opacity-70 transition-opacity duration-300">
                         LinkedIn
                       </a>
-                      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="block text-ink hover:opacity-70 transition-opacity duration-300">
-                        Twitter
+                      <a href="https://instagram.com/girish_lade_/" target="_blank" rel="noopener noreferrer" className="block text-ink hover:opacity-70 transition-opacity duration-300">
+                        Instagram
                       </a>
                     </div>
                   </div>
@@ -241,8 +241,8 @@ your project.</h1>
             <ScrollReveal delay={100}>
               <p className="text-ink-light">
                 You can also reach me directly at{" "}
-                <a href="mailto:hello@elenavance.com" className="text-ink underline underline-offset-4 hover:opacity-70 transition-opacity duration-300">
-                  hello@elenavance.com
+                <a href="mailto:admin@ladestack.in" className="text-ink underline underline-offset-4 hover:opacity-70 transition-opacity duration-300">
+                  admin@ladestack.in
                 </a>
               </p>
             </ScrollReveal>

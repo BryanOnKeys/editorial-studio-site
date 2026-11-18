@@ -4,10 +4,10 @@ import { ScrollReveal } from "./ScrollReveal";
 import { cn } from "@/lib/utils";
 
 const projectTypes = [
-  { id: "brand-identity", label: "Brand Identity", baseMin: 30000, baseMax: 50000 },
-  { id: "design-system", label: "Visual Design System", baseMin: 25000, baseMax: 45000 },
-  { id: "art-direction", label: "Art Direction", baseMin: 15000, baseMax: 30000 },
-  { id: "brand-guidelines", label: "Brand Guidelines", baseMin: 10000, baseMax: 25000 },
+  { id: "ui-ux-design", label: "UI/UX & Product Design", baseMin: 5000, baseMax: 15000 },
+  { id: "frontend-dev", label: "Frontend Web Application", baseMin: 8000, baseMax: 20000 },
+  { id: "fullstack-app", label: "Full-Stack Development", baseMin: 12000, baseMax: 30000 },
+  { id: "developer-tool", label: "Developer Tool / Utility", baseMin: 6000, baseMax: 18000 },
 ];
 
 const businessStages = [

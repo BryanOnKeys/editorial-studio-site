@@ -156,20 +156,28 @@ export function Header() {
           >
             <div className="flex gap-6">
               <a
-                href="https://instagram.com"
+                href="https://github.com/girishlade111"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-ink-muted transition-colors duration-300 hover:text-ink"
               >
-                Instagram
+                GitHub
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/girish-lade/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-ink-muted transition-colors duration-300 hover:text-ink"
               >
                 LinkedIn
+              </a>
+              <a
+                href="https://instagram.com/girish_lade_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-ink-muted transition-colors duration-300 hover:text-ink"
+              >
+                Instagram
               </a>
             </div>
           </div>

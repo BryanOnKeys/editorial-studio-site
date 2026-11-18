@@ -45,7 +45,7 @@ export default function About() {
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <h1 className="text-ink">
-                  Designing with purpose since 2014.
+                  Engineer by training. Product builder by choice.
                 </h1>
               </ScrollReveal>
             </div>
@@ -54,7 +54,7 @@ export default function About() {
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
                     src={portraitMain}
-                    alt="Elena Vance"
+                    alt="Girish Lade"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -70,33 +70,30 @@ export default function About() {
           <div className="max-w-3xl">
             <ScrollReveal>
               <p className="text-xl md:text-2xl text-ink leading-relaxed mb-8 first-letter:text-8xl md:first-letter:text-9xl first-letter:font-serif first-letter:float-left first-letter:mr-4 first-letter:mt-0 first-letter:leading-[0.75]">
-                I'm Elena, a designer and brand strategist based in New York City. 
-                For over a decade, I've partnered with organizations—from ambitious 
-                startups to established institutions—to craft identities that resonate 
-                and endure.
+                I'm Girish Balaso Lade, an independent developer and product designer based in Pune, India. 
+                My background began with Mechanical Engineering, while my professional focus led me into web engineering, 
+                interaction design, and building browser-native utilities.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <p className="text-ink-light mb-8">
-                My approach is rooted in restraint and intention. I believe the most 
-                powerful brands are built on clarity—a deep understanding of who you 
-                are and who you serve. This understanding becomes the foundation for 
-                every visual and verbal decision.
+                I founded LadeStack as an independent ecosystem built around a straightforward belief: everyday software 
+                should be useful before it is complicated. A developer should be able to open an IDE without burdensome setup; 
+                a student should turn notes into a clean PDF; and anyone handling personal documents should not be forced to 
+                upload them to remote servers.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <p className="text-ink-light mb-8">
-                Before starting my practice, I spent five years at Pentagram and three 
-                years at Collins, where I had the privilege of working with brands like 
-                The Whitney Museum, Dropbox, and Spotify. These experiences shaped my 
-                belief that great design emerges from rigorous thinking and deep collaboration.
+                My engineering training shaped how I approach digital products: identify real constraints, understand the underlying 
+                system, simplify the user flow, and iterate until the tool is dependable. I value responsive layouts, clean typography, 
+                and accessible controls as much as robust client-side execution.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={300}>
               <p className="text-ink-light">
-                When I'm not designing, you'll find me exploring the city's architecture, 
-                collecting vintage typography specimens, or attempting to master the art 
-                of sourdough.
+                Outside of software development, you'll find me exploring technical architecture, systems design, and studying 
+                emerging technologies that help builders create more freely.
               </p>
             </ScrollReveal>
           </div>
@@ -130,8 +127,8 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             <div className="lg:col-span-4">
               <ScrollReveal>
-                <p className="eyebrow mb-4">Recognition</p>
-                <h2 className="text-ink">Awards & Press</h2>
+                <p className="eyebrow mb-4">Milestones</p>
+                <h2 className="text-ink">Key Highlights</h2>
               </ScrollReveal>
             </div>
             <div className="lg:col-span-7 lg:col-start-6">
@@ -162,7 +159,7 @@ export default function About() {
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
                     src={workspace}
-                    alt="Elena's workspace"
+                    alt="Workspace and development tools"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -174,10 +171,10 @@ export default function About() {
               </ScrollReveal>
               <ScrollReveal delay={200}>
                 <p className="text-ink-light">
-                  Design is a lens through which I see the world. Outside the studio, 
-                  I'm drawn to architecture, typography, and the quiet details that 
-                  make spaces and objects memorable. I believe creativity is fueled 
-                  by curiosity—and by taking time to simply observe.
+                  Design and engineering are connected disciplines. Outside of coding and 
+                  software architecture, I explore physical design, system thinking, and 
+                  the quiet details that make digital tools intuitive and lasting. I believe 
+                  the best software comes from understanding how people actually work.
                 </p>
               </ScrollReveal>
             </div>
@@ -191,18 +188,18 @@ export default function About() {
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="text-ink mb-6">
-                Let's work together.
+                Let's build something useful.
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <p className="text-ink-light mb-10 max-w-xl mx-auto">
-                I'm always interested in hearing about new projects and challenges.
+                Have an interesting project, collaboration idea, or technical question? I'm always open to connecting.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <Button asChild>
                 <Link to="/contact" className="inline-flex items-center gap-2">
-                  Get an Estimate
+                  Get in Touch
                   <ArrowRight size={18} strokeWidth={1.5} />
                 </Link>
               </Button>

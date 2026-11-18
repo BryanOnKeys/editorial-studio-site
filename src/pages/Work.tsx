@@ -9,10 +9,14 @@ import emberHero from "@/assets/projects/ember-hero.jpg";
 import stillwaterHero from "@/assets/projects/stillwater-hero.jpg";
 
 const projectImages: Record<string, string> = {
-  "northlight-studio": northlightHero,
-  "meridian-architects": meridianHero,
-  "ember-and-co": emberHero,
-  "stillwater-journal": stillwaterHero,
+  "ladestack": northlightHero,
+  "gb-coder": meridianHero,
+  "ls-pdf": emberHero,
+  "md2pdf": stillwaterHero,
+  "bharat-land-converter": northlightHero,
+  "swift-resume": meridianHero,
+  "ls-image-compressor": emberHero,
+  "gamehub": stillwaterHero,
 };
 
 export default function Work() {
@@ -25,7 +29,7 @@ export default function Work() {
             <p className="eyebrow mb-6">Portfolio</p>
           </ScrollReveal>
           <ScrollReveal delay={100}>
-            <h1 className="text-ink max-w-4xl">Selected Projects</h1>
+            <h1 className="text-ink max-w-4xl">Selected Projects &amp; Tools</h1>
           </ScrollReveal>
         </div>
       </section>
@@ -68,8 +72,7 @@ export default function Work() {
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <p className="text-ink-light">
-                I'm always open to exploring new collaborations. 
-                Reach out to discuss how we might work together.
+                I'm always open to discussing developer experience, web apps, thoughtful UI/UX, or practical software ideas.
               </p>
             </ScrollReveal>
           </div>

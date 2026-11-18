@@ -10,10 +10,14 @@ import emberHero from "@/assets/projects/ember-hero.jpg";
 import stillwaterHero from "@/assets/projects/stillwater-hero.jpg";
 
 const projectImages: Record<string, string[]> = {
-  "northlight-studio": [northlightHero, meridianHero, emberHero],
-  "meridian-architects": [meridianHero, stillwaterHero, northlightHero],
-  "ember-and-co": [emberHero, northlightHero, stillwaterHero],
-  "stillwater-journal": [stillwaterHero, emberHero, meridianHero],
+  "ladestack": [northlightHero, meridianHero, emberHero],
+  "gb-coder": [meridianHero, stillwaterHero, northlightHero],
+  "ls-pdf": [emberHero, northlightHero, stillwaterHero],
+  "md2pdf": [stillwaterHero, emberHero, meridianHero],
+  "bharat-land-converter": [northlightHero, stillwaterHero, emberHero],
+  "swift-resume": [meridianHero, northlightHero, stillwaterHero],
+  "ls-image-compressor": [emberHero, meridianHero, northlightHero],
+  "gamehub": [stillwaterHero, northlightHero, emberHero],
 };
 
 export default function ProjectDetail() {

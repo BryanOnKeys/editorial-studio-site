@@ -147,14 +147,14 @@ export default function Index() {
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <blockquote className="font-serif text-3xl md:text-4xl text-ink leading-snug mb-8">
-                  "Good design is invisible. It solves problems without drawing attention to itself."
+                  "Engineer by training. Product builder by choice."
                 </blockquote>
               </ScrollReveal>
               <ScrollReveal delay={200}>
                 <p className="text-ink-light mb-8">
-                  With over a decade of experience working with brands across industries, 
-                  I bring a strategic approach to every project. My work is rooted in the 
-                  belief that the best brands are built on clarity, consistency, and restraint.
+                  I combine an engineering foundation with modern web development and interaction design. 
+                  My focus with LadeStack is to build focused, privacy-conscious tools that remove 
+                  unnecessary friction from coding, document workflows, and everyday digital productivity.
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={300}>
@@ -171,7 +171,7 @@ export default function Index() {
                 <div className="aspect-[4/5] bg-cream-darker overflow-hidden">
                   <img
                     src={portraitMain}
-                    alt="Elena Vance portrait"
+                    alt="Girish Lade portrait"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   />
                 </div>
@@ -218,20 +218,20 @@ export default function Index() {
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="text-ink mb-6">
-                Let's create something{" "}
-                <em className="font-serif italic">meaningful.</em>
+                Let's build something{" "}
+                <em className="font-serif italic">useful.</em>
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <p className="text-ink-light mb-10 max-w-xl mx-auto">
-                Currently accepting new projects for Q1 2025. I'd love to hear about 
-                what you're building.
+                Have an interesting project, collaboration idea, or technical question? 
+                I'm always interested in connecting with people building better digital tools.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <Button asChild>
                 <Link to="/contact" className="inline-flex items-center gap-2">
-                  Get an Estimate
+                  Get in Touch
                   <ArrowRight size={18} strokeWidth={1.5} />
                 </Link>
               </Button>

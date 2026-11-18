@@ -55,7 +55,7 @@ export function Header() {
               to="/"
               className="font-serif text-xl md:text-2xl text-ink transition-opacity duration-300 hover:opacity-70"
             >
-              Elena Vance
+              Girish Lade
             </Link>
 
             {/* Desktop Navigation */}

@@ -15,24 +15,28 @@ import stillwaterHero from "@/assets/projects/stillwater-hero.jpg";
 import portraitMain from "@/assets/portrait-main.jpg";
 
 const projectImages: Record<string, string> = {
-  "northlight-studio": northlightHero,
-  "meridian-architects": meridianHero,
-  "ember-and-co": emberHero,
-  "stillwater-journal": stillwaterHero,
+  "ladestack": northlightHero,
+  "gb-coder": meridianHero,
+  "ls-pdf": emberHero,
+  "md2pdf": stillwaterHero,
+  "bharat-land-converter": northlightHero,
+  "swift-resume": meridianHero,
+  "ls-image-compressor": emberHero,
+  "gamehub": stillwaterHero,
 };
 
 const services = [
   {
-    title: "Brand Strategy",
-    description: "Positioning and narrative frameworks that create lasting differentiation.",
+    title: "UI/UX & Product Design",
+    description: "Intuitive, accessible, and responsive visual systems built with purpose.",
   },
   {
-    title: "Visual Identity",
-    description: "Distinctive design systems built on strategic foundations.",
+    title: "Frontend Engineering",
+    description: "High-performance interfaces using modern TypeScript, React, and Astro.",
   },
   {
-    title: "Art Direction",
-    description: "Creative guidance that brings brand visions to life with precision.",
+    title: "Developer Tools",
+    description: "Browser-first utilities and privacy-conscious software architecture.",
   },
 ];
 

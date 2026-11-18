@@ -50,16 +50,16 @@ export default function Index() {
             {/* Text Content */}
             <div className="lg:col-span-7 order-2 lg:order-1">
               <ScrollReveal>
-                <p className="eyebrow mb-6">Design & Brand Strategy</p>
+                <p className="eyebrow mb-6">UI/UX Designer · Full-Stack Developer</p>
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <h1 className="text-ink mb-8">
-                  Editorial Portfolio
+                  Building useful software with thoughtful design.
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={200}>
                 <p className="text-lg md:text-xl text-ink-light max-w-xl mb-10">
-                  Refined portfolio for creatives
+                  I'm Girish, an independent developer and product designer building LadeStack—a growing ecosystem of accessible, privacy-conscious developer tools and practical web apps.
                 </p>
               </ScrollReveal>
 
@@ -68,7 +68,7 @@ export default function Index() {
                   to="/work"
                   className="arrow-link text-ink"
                 >
-                  View Selected Work
+                  View Selected Projects
                   <ArrowRight size={18} strokeWidth={1.5} />
                 </Link>
               </ScrollReveal>
@@ -80,7 +80,7 @@ export default function Index() {
                 <div className="aspect-[4/5] bg-cream-darker overflow-hidden">
                   <img
                     src={portraitMain}
-                    alt="Elena Vance - Designer"
+                    alt="Girish Lade - Designer & Developer"
                     className="w-full h-full object-cover"
                   />
                 </div>

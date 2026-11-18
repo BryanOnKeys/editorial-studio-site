@@ -8,9 +8,9 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { name: "Instagram", url: "https://instagram.com" },
-  { name: "LinkedIn", url: "https://linkedin.com" },
-  { name: "Twitter", url: "https://twitter.com" },
+  { name: "GitHub", url: "https://github.com/girishlade111" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/girish-lade/" },
+  { name: "Instagram", url: "https://www.instagram.com/girish_lade_/" },
 ];
 
 export function Footer() {
@@ -26,10 +26,10 @@ export function Footer() {
               to="/"
               className="font-serif text-2xl text-ink transition-opacity duration-300 hover:opacity-70"
             >
-              Elena Vance
+              Girish Lade
             </Link>
             <p className="mt-4 text-sm text-ink-muted max-w-xs">
-              Designer and brand strategist crafting distinctive identities with intention and restraint.
+              UI/UX designer and full-stack developer building practical, privacy-conscious tools at LadeStack.
             </p>
           </div>
 
@@ -73,10 +73,10 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-divider flex flex-col md:flex-row md:items-center justify-between gap-4">
           <p className="text-xs text-ink-muted">
-            © {currentYear} Elena Vance. All rights reserved.
+            © {currentYear} Girish Lade. All rights reserved.
           </p>
           <p className="text-xs text-ink-muted">
-            New York, NY
+            Pune, Maharashtra, India
           </p>
         </div>
       </div>

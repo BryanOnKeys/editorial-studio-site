@@ -13,102 +13,102 @@ import {
 const services = [
   {
     number: "01",
-    title: "Brand Strategy & Identity",
-    description: "Comprehensive brand development from positioning to visual identity. I work with you to uncover what makes your organization unique and translate that into a distinctive brand platform.",
+    title: "UI/UX & Interface Design",
+    description: "Turning product ideas into clear, functional interface directions through thoughtful user flows, component planning, responsive layouts, and accessible interaction patterns.",
     includes: [
-      "Brand positioning and narrative",
-      "Visual identity system",
-      "Logo and mark design",
-      "Typography and color palette",
-      "Brand guidelines documentation",
+      "Responsive user interface design",
+      "Design systems & component libraries",
+      "Information architecture & user flows",
+      "Accessible interactions & typography",
+      "Multi-theme visual systems",
     ],
-    idealFor: "Organizations ready for a complete brand transformation or launch.",
+    idealFor: "Startups and products needing intuitive, distinctive, and clean interfaces.",
   },
   {
     number: "02",
-    title: "Visual Design Systems",
-    description: "Scalable design systems that maintain consistency across touchpoints. Built on modular principles, these systems grow with your organization while preserving brand integrity.",
+    title: "Frontend Web Development",
+    description: "Building modern, high-performance web applications using React, Next.js, Astro, and TypeScript with strong attention to performance, Core Web Vitals, and responsive behavior.",
     includes: [
-      "Component-based design system",
-      "Digital and print templates",
-      "Icon and illustration systems",
-      "Motion and animation guidelines",
-      "Implementation documentation",
+      "React, Next.js & Astro architecture",
+      "TypeScript component development",
+      "Core Web Vitals & performance tuning",
+      "Interactive states & animations",
+      "Semantic HTML & technical SEO",
     ],
-    idealFor: "Established brands seeking to systematize their visual language.",
+    idealFor: "Teams and creators wanting fast, production-ready frontend web experiences.",
   },
   {
     number: "03",
-    title: "Art Direction",
-    description: "Creative guidance that brings brand visions to life with precision. From campaigns to content, I ensure every visual touchpoint tells a cohesive story.",
+    title: "Product Prototyping & Full-Stack",
+    description: "Exploring complete application flows from user inputs, data validation, and APIs to database modeling, authentication, state management, and reliable deployment.",
     includes: [
-      "Campaign concepting",
-      "Photography direction",
-      "Content strategy",
-      "Production oversight",
-      "Quality assurance",
+      "End-to-end web app prototyping",
+      "REST API integration & routes",
+      "Database modeling (Supabase, PostgreSQL)",
+      "Authentication patterns & data validation",
+      "Continuous deployment pipelines",
     ],
-    idealFor: "Brands launching campaigns or creating significant content.",
+    idealFor: "Founders and developers moving from early concept to working software.",
   },
   {
     number: "04",
-    title: "Brand Guidelines",
-    description: "Comprehensive documentation that empowers teams to implement brands consistently. Clear, actionable guidelines that scale with your organization.",
+    title: "Developer Tooling & Utilities",
+    description: "Crafting browser-native utilities, local-first computing tools, and AI-assisted workflows that prioritize user privacy, direct accessibility, and zero-friction onboarding.",
     includes: [
-      "Voice and tone guidelines",
-      "Visual usage rules",
-      "Digital asset library",
-      "Training and onboarding",
-      "Living documentation",
+      "In-browser IDE & code sandbox design",
+      "Client-side processing (Workers, Canvas, IndexedDB)",
+      "Markdown publishing & PDF generation",
+      "AI-assisted workflows & BYOK architecture",
+      "Technical documentation & developer guides",
     ],
-    idealFor: "Growing organizations needing brand governance tools.",
+    idealFor: "Builders seeking privacy-conscious utilities and developer tools.",
   },
 ];
 
 const process = [
   {
     step: "01",
-    title: "Discovery",
-    description: "We begin with deep listening. Through interviews, research, and analysis, I uncover the insights that will inform strategic decisions.",
+    title: "Define the Problem",
+    description: "Identify the user, the core task, existing friction points, and what a successful outcome must achieve.",
   },
   {
     step: "02",
-    title: "Strategy",
-    description: "Insights become direction. I develop positioning frameworks and creative strategies that guide all design decisions.",
+    title: "Architecture",
+    description: "Establish the simplest working foundation: determine local-first vs backend needs, data boundaries, and tech stack.",
   },
   {
     step: "03",
-    title: "Design",
-    description: "Strategy takes form. Through iterative exploration, we arrive at design solutions that are both beautiful and purposeful.",
+    title: "Interface Design",
+    description: "Craft clear hierarchy, responsive layouts, accessible typography, and intuitive interaction patterns.",
   },
   {
     step: "04",
-    title: "Refinement",
-    description: "Details matter. Every element is refined until the system works seamlessly across all applications.",
+    title: "Build & Iterate",
+    description: "Implement in small reviewable increments, testing edge cases, browser constraints, and real interactions.",
   },
   {
     step: "05",
-    title: "Delivery",
-    description: "The work comes to life. I provide comprehensive assets, guidelines, and support to ensure successful implementation.",
+    title: "Deploy & Measure",
+    description: "Ship clean code with documentation, SEO setup, and performance auditing, learning from real-world usage.",
   },
 ];
 
 const faqs = [
   {
-    question: "What is your typical timeline for projects?",
-    answer: "Timelines vary based on scope. A focused brand identity typically takes 8-12 weeks. Comprehensive brand systems can extend to 16-20 weeks. I'll provide a detailed timeline during our initial consultation.",
+    question: "What types of projects do you take on?",
+    answer: "I specialize in UI/UX design, modern frontend development (React, Next.js, Astro, TypeScript), full-stack product prototypes, and browser-first developer tools.",
   },
   {
-    question: "How do revisions work?",
-    answer: "Each phase includes dedicated revision rounds built into the timeline. I believe in iterative refinement—most projects include 2-3 rounds of revisions per major deliverable.",
+    question: "What does privacy-first and local-first architecture mean?",
+    answer: "It means prioritizing client-side execution, Web Workers, and local persistence (like IndexedDB) so user files and data remain on their own device whenever technically practical, avoiding unnecessary server uploads.",
   },
   {
-    question: "What should I prepare before we start?",
-    answer: "I'll send you a comprehensive questionnaire to gather background information. Having clarity on your goals, timeline, and key stakeholders helps us start strong.",
+    question: "Do you collaborate with clients or teams remotely?",
+    answer: "Yes. I am based in Pune, Maharashtra, India, and work with developers, founders, and teams remotely using GitHub, modern collaboration tools, and structured communication.",
   },
   {
-    question: "Do you work with clients remotely?",
-    answer: "Absolutely. While I'm based in New York, I work with clients globally. Video calls, shared workspaces, and regular check-ins ensure seamless collaboration regardless of location.",
+    question: "How do you integrate AI into software development?",
+    answer: "I use AI as a development accelerator for implementation, testing, and exploration while preserving human review, verifiable architectures, and transparent third-party API boundaries (like BYOK designs).",
   },
 ];
 
@@ -127,8 +127,7 @@ export default function Services() {
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <p className="text-xl text-ink-light">
-                I offer focused services designed to create lasting impact. Each engagement 
-                is tailored to your specific needs and goals.
+                I build modern interfaces, developer utilities, and web applications designed to solve real problems with speed and clarity.
               </p>
             </ScrollReveal>
           </div>
@@ -240,18 +239,17 @@ export default function Services() {
         <div className="container-editorial px-6 md:px-12 lg:px-20">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="text-ink mb-6">Ready to start?</h2>
+              <h2 className="text-ink mb-6">Ready to build?</h2>
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <p className="text-ink-light mb-10 max-w-xl mx-auto">
-                I work best with clients who value collaboration and are ready 
-                to invest in meaningful work.
+                Whether you need an intuitive interface, a modern web app, or a practical developer utility, let's discuss what you're making.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <Button asChild>
                 <Link to="/contact" className="inline-flex items-center gap-2">
-                  Get an Estimate
+                  Get in Touch
                   <ArrowRight size={18} strokeWidth={1.5} />
                 </Link>
               </Button>

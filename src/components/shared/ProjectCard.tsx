@@ -35,7 +35,8 @@ export function ProjectCard({
       >
         <img
           src={image}
-          alt={title}
+          alt=""
+          aria-hidden="true"
           className="project-card-image w-full h-full object-cover"
         />
         {/* Hover Overlay */}

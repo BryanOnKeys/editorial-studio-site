@@ -14,6 +14,8 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,12 +32,44 @@ export function Header() {
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
+      closeButtonRef.current?.focus();
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") {
+          setIsMobileMenuOpen(false);
+          return;
+        }
+
+        if (e.key === "Tab" && mobileMenuRef.current) {
+          const focusable = mobileMenuRef.current.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusable.length === 0) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+
+          if (e.shiftKey) {
+            if (document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            }
+          } else {
+            if (document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        }
+      };
+
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
     } else {
       document.body.style.overflow = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [isMobileMenuOpen]);
 
   return (
@@ -80,6 +114,8 @@ export function Header() {
               onClick={() => setIsMobileMenuOpen(true)}
               className="md:hidden p-2 -mr-2 text-ink transition-opacity duration-300 hover:opacity-70"
               aria-label="Open menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               <Menu size={24} strokeWidth={1.5} />
             </button>
@@ -89,6 +125,8 @@ export function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
+        id="mobile-navigation"
+        ref={mobileMenuRef}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
@@ -112,6 +150,7 @@ export function Header() {
               Girish Lade
             </Link>
             <button
+              ref={closeButtonRef}
               onClick={() => setIsMobileMenuOpen(false)}
               className="p-2 -mr-2 text-ink transition-opacity duration-300 hover:opacity-70"
               aria-label="Close menu"

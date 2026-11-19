@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, Github } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { SEO } from "@/components/shared/SEO";
@@ -37,7 +37,7 @@ export default function ProjectDetail() {
   }
 
   const nextProject = projects[(projectIndex + 1) % projects.length];
-  const images = projectImages[slug!] || [northlightHero];
+  const images = projectImages[slug!] || [northlightHero, meridianHero, emberHero];
 
   const projectSchema = {
     "@context": "https://schema.org",
@@ -159,6 +159,32 @@ export default function ProjectDetail() {
                     <p className="eyebrow mb-2">Year</p>
                     <p className="text-ink">{project.year}</p>
                   </div>
+                  {(project.demoUrl || project.githubUrl) && (
+                    <div className="pt-4 border-t border-divider space-y-3">
+                      {project.demoUrl && (
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 w-full py-3 px-4 bg-ink text-cream hover:bg-ink/90 transition-colors duration-300 text-sm font-medium tracking-wide"
+                        >
+                          Visit Live Tool
+                          <ExternalLink size={16} strokeWidth={1.5} />
+                        </a>
+                      )}
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 w-full py-3 px-4 border border-ink text-ink hover:bg-cream-dark transition-colors duration-300 text-sm font-medium tracking-wide"
+                        >
+                          View on GitHub
+                          <Github size={16} strokeWidth={1.5} />
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </ScrollReveal>
             </div>
@@ -174,7 +200,7 @@ export default function ProjectDetail() {
             <ScrollReveal>
               <div className="aspect-[16/10] overflow-hidden">
                 <img
-                  src={images[0]}
+                  src={images[1] || images[0]}
                   alt={`${project.title} - Application overview and interface`}
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -188,7 +214,7 @@ export default function ProjectDetail() {
               <ScrollReveal>
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
-                    src={images[1]}
+                    src={images[2] || images[0]}
                     alt={`${project.title} - Feature architecture preview`}
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -199,7 +225,7 @@ export default function ProjectDetail() {
               <ScrollReveal delay={100}>
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
-                    src={images[2]}
+                    src={images[0]}
                     alt={`${project.title} - Detailed interface screen`}
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -213,7 +239,7 @@ export default function ProjectDetail() {
             <ScrollReveal>
               <div className="aspect-[21/9] overflow-hidden">
                 <img
-                  src={images[0]}
+                  src={images[1] || images[2] || images[0]}
                   alt={`${project.title} - Product design system view`}
                   className="w-full h-full object-cover"
                   loading="lazy"

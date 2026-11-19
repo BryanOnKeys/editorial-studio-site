@@ -25,7 +25,7 @@ Editorial Studio Site combines editorial typography, structured whitespace, and 
 - Routing: React Router v6
 - State and Async: TanStack Query (React Query)
 - Icons: Lucide React
-- Notifications: Sonner and Radix Toaster
+- Notifications: Radix UI Toaster
 
 ## Site Architecture
 

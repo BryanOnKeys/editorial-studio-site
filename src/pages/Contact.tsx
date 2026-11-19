@@ -52,11 +52,26 @@ export default function Contact() {
     }
     setIsSubmitting(true);
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Prepare message dispatch with mailto fallback
+      await new Promise(resolve => setTimeout(resolve, 600));
+      const subject = encodeURIComponent(`Project Inquiry: ${formData.projectType || "Consultation"} - ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Company: ${formData.company || "N/A"}\n` +
+        `Project Type: ${formData.projectType || "N/A"}\n` +
+        `Budget Range: ${formData.budget || "N/A"}\n` +
+        `Referral: ${formData.referral || "N/A"}\n\n` +
+        `Project Details:\n${formData.message}`
+      );
+      const mailtoUrl = `mailto:admin@ladestack.in?subject=${subject}&body=${body}`;
+
+      // Open email client safely
+      window.open(mailtoUrl, "_blank");
+
       toast({
-        title: "Message sent",
-        description: "Thank you for reaching out. I'll be in touch within 24-48 hours."
+        title: "Message prepared & dispatched",
+        description: "Thank you for reaching out. Your inquiry email draft has been generated and I will respond within 24-48 hours."
       });
       setFormData({
         name: "",
@@ -70,7 +85,7 @@ export default function Contact() {
     } catch (err) {
       toast({
         title: "Something went wrong",
-        description: "Your message couldn't be sent. Please try again or email admin@ladestack.in.",
+        description: "Your message couldn't be sent automatically. Please email admin@ladestack.in directly.",
         variant: "destructive",
       });
     } finally {
@@ -143,7 +158,15 @@ your project.</h1>
       </section>
 
       {/* Investment Estimator */}
-      <InvestmentEstimator />
+      <InvestmentEstimator
+        onEstimateSelect={({ projectType, budget }) => {
+          setFormData((prev) => ({
+            ...prev,
+            projectType: projectType || prev.projectType,
+            budget: budget || prev.budget,
+          }));
+        }}
+      />
 
       {/* Contact Form */}
       <section id="contact-form" className="section-padding border-t border-divider">

@@ -12,6 +12,10 @@ import northlightHero from "@/assets/projects/northlight-hero.jpg";
 import meridianHero from "@/assets/projects/meridian-hero.jpg";
 import emberHero from "@/assets/projects/ember-hero.jpg";
 import stillwaterHero from "@/assets/projects/stillwater-hero.jpg";
+import bharatLandHero from "@/assets/projects/bharat-land-hero.jpg";
+import swiftResumeHero from "@/assets/projects/swift-resume-hero.jpg";
+import lsImageCompressorHero from "@/assets/projects/ls-image-compressor-hero.jpg";
+import gamehubHero from "@/assets/projects/gamehub-hero.jpg";
 import portraitMain from "@/assets/portrait-main.jpg";
 
 const projectImages: Record<string, string> = {
@@ -19,10 +23,10 @@ const projectImages: Record<string, string> = {
   "gb-coder": meridianHero,
   "ls-pdf": emberHero,
   "md2pdf": stillwaterHero,
-  "bharat-land-converter": northlightHero,
-  "swift-resume": meridianHero,
-  "ls-image-compressor": emberHero,
-  "gamehub": stillwaterHero,
+  "bharat-land-converter": bharatLandHero,
+  "swift-resume": swiftResumeHero,
+  "ls-image-compressor": lsImageCompressorHero,
+  "gamehub": gamehubHero,
 };
 
 const services = [

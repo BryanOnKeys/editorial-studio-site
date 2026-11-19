@@ -8,16 +8,20 @@ import northlightHero from "@/assets/projects/northlight-hero.jpg";
 import meridianHero from "@/assets/projects/meridian-hero.jpg";
 import emberHero from "@/assets/projects/ember-hero.jpg";
 import stillwaterHero from "@/assets/projects/stillwater-hero.jpg";
+import bharatLandHero from "@/assets/projects/bharat-land-hero.jpg";
+import swiftResumeHero from "@/assets/projects/swift-resume-hero.jpg";
+import lsImageCompressorHero from "@/assets/projects/ls-image-compressor-hero.jpg";
+import gamehubHero from "@/assets/projects/gamehub-hero.jpg";
 
 const projectImages: Record<string, string[]> = {
   "ladestack": [northlightHero, meridianHero, emberHero],
   "gb-coder": [meridianHero, stillwaterHero, northlightHero],
   "ls-pdf": [emberHero, northlightHero, stillwaterHero],
   "md2pdf": [stillwaterHero, emberHero, meridianHero],
-  "bharat-land-converter": [northlightHero, stillwaterHero, emberHero],
-  "swift-resume": [meridianHero, northlightHero, stillwaterHero],
-  "ls-image-compressor": [emberHero, meridianHero, northlightHero],
-  "gamehub": [stillwaterHero, northlightHero, emberHero],
+  "bharat-land-converter": [bharatLandHero, stillwaterHero, emberHero],
+  "swift-resume": [swiftResumeHero, northlightHero, stillwaterHero],
+  "ls-image-compressor": [lsImageCompressorHero, meridianHero, northlightHero],
+  "gamehub": [gamehubHero, northlightHero, emberHero],
 };
 
 export default function ProjectDetail() {

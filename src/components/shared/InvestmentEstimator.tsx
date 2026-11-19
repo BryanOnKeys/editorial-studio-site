@@ -1,4 +1,4 @@
-import { useState, useEffect, useId, useRef } from "react";
+import { useState, useEffect, useId } from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { ArrowRight, Check } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
@@ -62,46 +62,35 @@ function SelectionButton({ selected, value, children }: SelectionButtonProps) {
 
 function AnimatedNumber({ value }: { value: number }) {
   const [displayValue, setDisplayValue] = useState(value);
-  const currentValueRef = useRef(value);
 
   useEffect(() => {
-    const start = currentValueRef.current;
+    const start = displayValue;
     const end = value;
     const duration = 400;
-    const startTime = performance.now();
-    let frameId: number;
+    const startTime = Date.now();
 
-    const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
-
+      
       // Easing function
       const easeOut = 1 - Math.pow(1 - progress, 3);
       const current = start + (end - start) * easeOut;
-      const rounded = Math.round(current);
-
-      setDisplayValue(rounded);
-      currentValueRef.current = rounded;
+      
+      setDisplayValue(Math.round(current));
 
       if (progress < 1) {
-        frameId = requestAnimationFrame(animate);
+        requestAnimationFrame(animate);
       }
     };
 
-    frameId = requestAnimationFrame(animate);
-    return () => {
-      cancelAnimationFrame(frameId);
-    };
+    requestAnimationFrame(animate);
   }, [value]);
 
   return <>{displayValue.toLocaleString()}</>;
 }
 
-interface InvestmentEstimatorProps {
-  onEstimateSelect?: (estimate: { projectType: string; budget: string }) => void;
-}
-
-export function InvestmentEstimator({ onEstimateSelect }: InvestmentEstimatorProps = {}) {
+export function InvestmentEstimator() {
   const labelId = useId();
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const [selectedStage, setSelectedStage] = useState<string | null>(null);
@@ -134,32 +123,6 @@ export function InvestmentEstimator({ onEstimateSelect }: InvestmentEstimatorPro
   const completedSteps = [selectedType, selectedStage, selectedTimeline, selectedScope].filter(Boolean).length;
 
   const scrollToForm = () => {
-    if (onEstimateSelect && estimate && selectedType) {
-      let mappedType = "";
-      if (selectedType === "ui-ux-design") mappedType = "UI/UX Design";
-      else if (selectedType === "frontend-dev") mappedType = "Frontend Web Development";
-      else if (selectedType === "fullstack-app") mappedType = "Full-Stack Application";
-      else if (selectedType === "developer-tool") mappedType = "Developer Tool / Utility";
-
-      let mappedBudget = "Under $25,000";
-      if (estimate.max <= 25000) {
-        mappedBudget = "Under $25,000";
-      } else if (estimate.min >= 25000 && estimate.max <= 50000) {
-        mappedBudget = "$25,000 – $50,000";
-      } else if (estimate.min >= 50000 && estimate.max <= 100000) {
-        mappedBudget = "$50,000 – $100,000";
-      } else if (estimate.min >= 100000) {
-        mappedBudget = "$100,000+";
-      } else {
-        mappedBudget = "$25,000 – $50,000";
-      }
-
-      onEstimateSelect({
-        projectType: mappedType,
-        budget: mappedBudget,
-      });
-    }
-
     const formElement = document.getElementById("contact-form");
     if (formElement) {
       formElement.scrollIntoView({ behavior: "smooth" });

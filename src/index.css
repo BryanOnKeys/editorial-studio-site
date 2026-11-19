@@ -108,10 +108,8 @@
     @apply border-border;
   }
 
-  html, body {
+  body {
     @apply bg-background text-foreground font-sans antialiased;
-    overflow-x: clip;
-    max-width: 100%;
   }
 
   /* Typography Styles */
@@ -260,25 +258,5 @@
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
-
-  @media print {
-    .opacity-0 {
-      opacity: 1 !important;
-      transform: none !important;
-    }
-    * {
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
   }
 }

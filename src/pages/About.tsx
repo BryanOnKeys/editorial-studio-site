@@ -145,8 +145,7 @@ export default function About() {
       <section className="section-padding bg-cream-dark">
         <div className="container-editorial px-6 md:px-12 lg:px-20">
           <ScrollReveal>
-            <p className="eyebrow mb-4">Philosophy</p>
-            <h2 className="text-ink mb-16 md:mb-20">Approach & Principles</h2>
+            <p className="eyebrow mb-16 md:mb-20">Approach</p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
@@ -179,7 +178,7 @@ export default function About() {
                   <ScrollReveal key={item.name} delay={index * 50}>
                     <div className="py-6 flex items-center justify-between">
                       <div>
-                        <h3 className="font-serif text-lg text-ink">{item.name}</h3>
+                        <h4 className="font-serif text-lg text-ink">{item.name}</h4>
                         <p className="text-sm text-ink-muted">{item.type}</p>
                       </div>
                       <span className="text-sm text-ink-muted">{item.year}</span>

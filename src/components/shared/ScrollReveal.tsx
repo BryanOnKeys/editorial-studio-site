@@ -8,20 +8,10 @@ interface ScrollRevealProps {
 }
 
 export function ScrollReveal({ children, className, delay = 0 }: ScrollRevealProps) {
-  const [isVisible, setIsVisible] = useState(() => {
-    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return true;
-    }
-    return false;
-  });
+  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setIsVisible(true);
-      return;
-    }
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -46,7 +36,7 @@ export function ScrollReveal({ children, className, delay = 0 }: ScrollRevealPro
     <div
       ref={ref}
       className={cn(
-        "opacity-0 translate-y-8 transition-all duration-700 ease-editorial motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none",
+        "opacity-0 translate-y-8 transition-all duration-700 ease-editorial",
         isVisible && "opacity-100 translate-y-0",
         className
       )}

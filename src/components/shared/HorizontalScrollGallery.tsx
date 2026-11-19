@@ -140,24 +140,10 @@ export const HorizontalScrollGallery = () => {
   const horizontalScrollAmount = trackWidth - window.innerWidth;
   const translateX = -scrollProgress * Math.max(0, horizontalScrollAmount);
 
-  const handleItemFocus = (index: number) => {
-    setHoveredIndex(index);
-    if (!containerRef.current) return;
-    const containerTop = containerRef.current.offsetTop;
-    const containerHeight = containerRef.current.offsetHeight;
-    const scrollableDistance = Math.max(0, containerHeight - window.innerHeight);
-    const targetProgress = index / Math.max(1, galleryImages.length - 1);
-    const targetScrollY = containerTop + targetProgress * scrollableDistance;
-    window.scrollTo({
-      top: targetScrollY,
-      behavior: prefersReducedMotion ? 'auto' : 'smooth',
-    });
-  };
-
   return (
     <section
       ref={containerRef}
-      className="relative w-full max-w-full overflow-hidden"
+      className="relative w-screen -ml-[calc((100vw-100%)/2)]"
       style={{ 
         // Height determines how long the scroll-hijack lasts
         // More height = slower horizontal scroll
@@ -220,15 +206,13 @@ export const HorizontalScrollGallery = () => {
               <Link
                 key={index}
                 to={`/work/${image.projectSlug}`}
-                className="flex-shrink-0 relative group cursor-pointer block rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
+                className="flex-shrink-0 relative group cursor-pointer block"
                 style={{ 
                   marginRight: `${gap}px`,
                   alignSelf,
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                onFocus={() => handleItemFocus(index)}
-                onBlur={() => setHoveredIndex(null)}
               >
                 <div
                   className="relative overflow-hidden"
@@ -251,9 +235,9 @@ export const HorizontalScrollGallery = () => {
                   />
                 </div>
                 
-                {/* Hover/Focus title - shows project name */}
+                {/* Hover title - shows project name */}
                 <div
-                  className="absolute -bottom-8 left-0 transition-all duration-300 group-focus-visible:opacity-100 group-focus-visible:translate-y-0"
+                  className="absolute -bottom-8 left-0 transition-all duration-300"
                   style={{ 
                     opacity: hoveredIndex === index ? 1 : 0,
                     transform: hoveredIndex === index ? 'translateY(0)' : 'translateY(-4px)'

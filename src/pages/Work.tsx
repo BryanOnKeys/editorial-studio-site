@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { ProjectCard } from "@/components/shared/ProjectCard";
 import { SEO } from "@/components/shared/SEO";
 import { SITE_CONFIG, createBreadcrumbSchema } from "@/lib/seo-config";
 import { projects } from "@/data/projects";
-import { cn } from "@/lib/utils";
 
 import northlightHero from "@/assets/projects/northlight-hero.jpg";
 import meridianHero from "@/assets/projects/meridian-hero.jpg";
@@ -28,18 +26,6 @@ const projectImages: Record<string, string> = {
 };
 
 export default function Work() {
-  const [activeTab, setActiveTab] = useState("All");
-  const filterTabs = ["All", "Developer Tools", "Document Processing", "Utilities", "Games"];
-
-  const filteredProjects = projects.filter((project) => {
-    if (activeTab === "All") return true;
-    if (activeTab === "Developer Tools") return project.industry === "Developer Tools" || project.industry === "Software Engineering";
-    if (activeTab === "Document Processing") return project.industry === "Document Processing" || project.industry === "Technical Publishing";
-    if (activeTab === "Utilities") return project.industry === "Real Estate & Agriculture" || project.industry === "Career & Education" || project.industry === "Web Performance";
-    if (activeTab === "Games") return project.industry === "Web Games";
-    return true;
-  });
-
   const workSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -84,36 +70,14 @@ export default function Work() {
           <ScrollReveal delay={100}>
             <h1 className="text-ink max-w-4xl">Selected Projects &amp; Tools</h1>
           </ScrollReveal>
-          <ScrollReveal delay={200}>
-            <div className="flex flex-wrap items-center gap-2 mt-8 md:mt-12" role="tablist" aria-label="Project categories">
-              {filterTabs.map((tab) => (
-                <button
-                  key={tab}
-                  type="button"
-                  role="tab"
-                  aria-selected={activeTab === tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={cn(
-                    "px-4 py-2 text-xs md:text-sm tracking-wide uppercase transition-all duration-300 border",
-                    activeTab === tab
-                      ? "bg-ink text-cream border-ink"
-                      : "bg-transparent text-ink-light border-divider hover:border-ink hover:text-ink"
-                  )}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
       {/* Projects Grid */}
       <section className="section-padding border-t border-divider">
         <div className="container-editorial px-6 md:px-12 lg:px-20">
-          <h2 className="sr-only">Project Directory</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 md:gap-x-12 md:gap-y-24 lg:gap-x-16">
-            {filteredProjects.map((project, index) => (
+            {projects.map((project, index) => (
               <ScrollReveal 
                 key={project.slug} 
                 delay={index * 100}

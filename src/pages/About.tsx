@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/shared/SEO";
+import { SITE_CONFIG, createBreadcrumbSchema } from "@/lib/seo-config";
 
 import portraitMain from "@/assets/portrait-main.jpg";
 import workspace from "@/assets/workspace.jpg";
@@ -33,8 +35,47 @@ const recognition = [
 ];
 
 export default function About() {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": `${SITE_CONFIG.siteUrl}/about#webpage`,
+        "url": `${SITE_CONFIG.siteUrl}/about`,
+        "name": `About ${SITE_CONFIG.name} | Background & Philosophy`,
+        "description": "Learn about Girish Balaso Lade, full-stack developer and UI/UX designer. Background, software philosophy, credentials, and LadeStack ecosystem.",
+        "breadcrumb": {
+          "@id": `${SITE_CONFIG.siteUrl}/about#breadcrumb`,
+        },
+        "mainEntity": {
+          "@type": "Person",
+          "name": SITE_CONFIG.name,
+          "jobTitle": "Full-Stack Developer & UI/UX Designer",
+          "url": SITE_CONFIG.siteUrl,
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pune",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN",
+          },
+        },
+      },
+      createBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "About", url: "/about" },
+      ]),
+    ],
+  };
+
   return (
     <Layout>
+      <SEO
+        title="About Girish Lade | Background & Engineering Philosophy"
+        description="Learn about Girish Balaso Lade, a full-stack engineer and UI/UX designer in Pune, India building LadeStack, privacy-first software, and modern web applications."
+        canonical="/about"
+        ogType="profile"
+        schema={aboutSchema}
+      />
       {/* Hero Section */}
       <section className="pt-32 md:pt-40 pb-16 md:pb-24">
         <div className="container-editorial px-6 md:px-12 lg:px-20">

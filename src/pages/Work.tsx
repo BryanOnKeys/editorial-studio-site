@@ -1,6 +1,8 @@
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { ProjectCard } from "@/components/shared/ProjectCard";
+import { SEO } from "@/components/shared/SEO";
+import { SITE_CONFIG, createBreadcrumbSchema } from "@/lib/seo-config";
 import { projects } from "@/data/projects";
 
 import northlightHero from "@/assets/projects/northlight-hero.jpg";
@@ -24,8 +26,41 @@ const projectImages: Record<string, string> = {
 };
 
 export default function Work() {
+  const workSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${SITE_CONFIG.siteUrl}/work#webpage`,
+        "url": `${SITE_CONFIG.siteUrl}/work`,
+        "name": `Work & Selected Projects | ${SITE_CONFIG.name}`,
+        "description": "Featured developer tools, browser IDEs, document utilities, and web applications built by Girish Lade.",
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": projects.map((p, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": p.title,
+            "url": `${SITE_CONFIG.siteUrl}/work/${p.slug}`,
+            "description": p.overview,
+          })),
+        },
+      },
+      createBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Work", url: "/work" },
+      ]),
+    ],
+  };
+
   return (
     <Layout>
+      <SEO
+        title="Work & Portfolio | Selected Projects & Developer Tools"
+        description="Explore case studies and featured products created by Girish Lade: LadeStack, GB Coder, LS PDF, MD2PDF, Swift Resume, and privacy-conscious web utilities."
+        canonical="/work"
+        schema={workSchema}
+      />
       {/* Hero */}
       <section className="pt-32 md:pt-40 pb-16 md:pb-24">
         <div className="container-editorial px-6 md:px-12 lg:px-20">

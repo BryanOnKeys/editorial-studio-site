@@ -2,6 +2,8 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
+import { SEO } from "@/components/shared/SEO";
+import { SITE_CONFIG, createBreadcrumbSchema } from "@/lib/seo-config";
 import { projects } from "@/data/projects";
 
 import northlightHero from "@/assets/projects/northlight-hero.jpg";
@@ -37,8 +39,53 @@ export default function ProjectDetail() {
   const nextProject = projects[(projectIndex + 1) % projects.length];
   const images = projectImages[slug!] || [northlightHero];
 
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": `${SITE_CONFIG.siteUrl}/work/${project.slug}#application`,
+        "name": project.title,
+        "description": project.overview,
+        "applicationCategory": project.category,
+        "operatingSystem": "Any modern web browser",
+        "author": {
+          "@type": "Person",
+          "name": SITE_CONFIG.name,
+          "url": SITE_CONFIG.siteUrl,
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "LadeStack",
+          "url": SITE_CONFIG.siteUrl,
+        },
+        "datePublished": `${project.year}-01-01`,
+      },
+      createBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Work", url: "/work" },
+        { name: project.title, url: `/work/${project.slug}` },
+      ]),
+    ],
+  };
+
   return (
     <Layout>
+      <SEO
+        title={`${project.title} - ${project.category} Case Study`}
+        description={`${project.title}: ${project.overview} Engineered with ${project.services.join(", ")}.`}
+        canonical={`/work/${project.slug}`}
+        ogType="article"
+        keywords={[
+          project.title,
+          project.category,
+          project.industry,
+          ...project.services,
+          "Case Study",
+          "Girish Lade",
+        ]}
+        schema={projectSchema}
+      />
       {/* Hero Image */}
       <section className="pt-24 md:pt-32">
         <div className="w-full">
@@ -46,8 +93,9 @@ export default function ProjectDetail() {
             <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden">
               <img
                 src={images[0]}
-                alt={project.title}
+                alt={`${project.title} - ${project.category} hero showcase`}
                 className="w-full h-full object-cover"
+                decoding="async"
               />
             </div>
           </ScrollReveal>
@@ -127,8 +175,10 @@ export default function ProjectDetail() {
               <div className="aspect-[16/10] overflow-hidden">
                 <img
                   src={images[0]}
-                  alt={`${project.title} detail`}
+                  alt={`${project.title} - Application overview and interface`}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </ScrollReveal>
@@ -139,8 +189,10 @@ export default function ProjectDetail() {
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
                     src={images[1]}
-                    alt={`${project.title} detail`}
+                    alt={`${project.title} - Feature architecture preview`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </ScrollReveal>
@@ -148,8 +200,10 @@ export default function ProjectDetail() {
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
                     src={images[2]}
-                    alt={`${project.title} detail`}
+                    alt={`${project.title} - Detailed interface screen`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </ScrollReveal>
@@ -160,8 +214,10 @@ export default function ProjectDetail() {
               <div className="aspect-[21/9] overflow-hidden">
                 <img
                   src={images[0]}
-                  alt={`${project.title} detail`}
+                  alt={`${project.title} - Product design system view`}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </ScrollReveal>

@@ -4,6 +4,8 @@ import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { InvestmentEstimator } from "@/components/shared/InvestmentEstimator";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/shared/SEO";
+import { SITE_CONFIG, createBreadcrumbSchema } from "@/lib/seo-config";
 import { useToast } from "@/hooks/use-toast";
 const projectTypes = ["UI/UX Design", "Frontend Web Development", "Full-Stack Application", "Developer Tool / Utility", "Other"];
 const budgetRanges = ["Under $25,000", "$25,000 – $50,000", "$50,000 – $100,000", "$100,000+", "Not sure yet"];
@@ -75,7 +77,50 @@ export default function Contact() {
       setIsSubmitting(false);
     }
   };
-  return <Layout>
+
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": `${SITE_CONFIG.siteUrl}/contact#webpage`,
+        "url": `${SITE_CONFIG.siteUrl}/contact`,
+        "name": `Contact & Inquiries | ${SITE_CONFIG.name}`,
+        "description": "Contact Girish Balaso Lade for UI/UX design, full-stack engineering, and project consultation.",
+        "mainEntity": {
+          "@type": "Person",
+          "name": SITE_CONFIG.name,
+          "email": SITE_CONFIG.email,
+          "url": SITE_CONFIG.siteUrl,
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pune",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN",
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": SITE_CONFIG.email,
+            "contactType": "general inquiries",
+            "availableLanguage": ["English", "Marathi", "Hindi"],
+          },
+        },
+      },
+      createBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Contact", url: "/contact" },
+      ]),
+    ],
+  };
+
+  return (
+    <Layout>
+      <SEO
+        title="Contact & Investment Estimate | Girish Lade"
+        description="Reach out to Girish Balaso Lade in Pune, India for UI/UX design, frontend engineering, and full-stack software development. Calculate project investment or send an inquiry."
+        canonical="/contact"
+        schema={contactSchema}
+      />
       {/* Hero */}
       <section className="pt-32 md:pt-40 pb-16 md:pb-24">
         <div className="container-editorial px-6 md:px-12 lg:px-20">
@@ -249,5 +294,6 @@ your project.</h1>
           </div>
         </div>
       </section>
-    </Layout>;
+    </Layout>
+  );
 }

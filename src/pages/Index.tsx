@@ -6,12 +6,18 @@ import { ProjectCard } from "@/components/shared/ProjectCard";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { HorizontalScrollGallery } from "@/components/shared/HorizontalScrollGallery";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/shared/SEO";
+import { SITE_CONFIG } from "@/lib/seo-config";
 import { projects } from "@/data/projects";
 
 import northlightHero from "@/assets/projects/northlight-hero.jpg";
 import meridianHero from "@/assets/projects/meridian-hero.jpg";
 import emberHero from "@/assets/projects/ember-hero.jpg";
 import stillwaterHero from "@/assets/projects/stillwater-hero.jpg";
+import bharatLandHero from "@/assets/projects/bharat-land-hero.jpg";
+import swiftResumeHero from "@/assets/projects/swift-resume-hero.jpg";
+import lsImageCompressorHero from "@/assets/projects/ls-image-compressor-hero.jpg";
+import gamehubHero from "@/assets/projects/gamehub-hero.jpg";
 import portraitMain from "@/assets/portrait-main.jpg";
 
 const projectImages: Record<string, string> = {
@@ -19,10 +25,10 @@ const projectImages: Record<string, string> = {
   "gb-coder": meridianHero,
   "ls-pdf": emberHero,
   "md2pdf": stillwaterHero,
-  "bharat-land-converter": northlightHero,
-  "swift-resume": meridianHero,
-  "ls-image-compressor": emberHero,
-  "gamehub": stillwaterHero,
+  "bharat-land-converter": bharatLandHero,
+  "swift-resume": swiftResumeHero,
+  "ls-image-compressor": lsImageCompressorHero,
+  "gamehub": gamehubHero,
 };
 
 const services = [
@@ -41,8 +47,65 @@ const services = [
 ];
 
 export default function Index() {
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": `${SITE_CONFIG.siteUrl}/#person`,
+        "name": SITE_CONFIG.name,
+        "alternateName": SITE_CONFIG.fullName,
+        "url": `${SITE_CONFIG.siteUrl}/`,
+        "image": SITE_CONFIG.defaultOgImage,
+        "jobTitle": "Full-Stack Developer & UI/UX Designer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "LadeStack",
+          "url": SITE_CONFIG.siteUrl,
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pune",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN",
+        },
+        "sameAs": [
+          SITE_CONFIG.socials.github,
+          SITE_CONFIG.socials.linkedin,
+          SITE_CONFIG.socials.instagram,
+        ],
+        "knowsAbout": [
+          "UI/UX Design",
+          "Frontend Engineering",
+          "React",
+          "TypeScript",
+          "Full-Stack Development",
+          "Web Performance",
+          "Developer Tools",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_CONFIG.siteUrl}/#website`,
+        "url": `${SITE_CONFIG.siteUrl}/`,
+        "name": "Girish Lade - Portfolio & Studio",
+        "description": SITE_CONFIG.description,
+        "publisher": {
+          "@id": `${SITE_CONFIG.siteUrl}/#person`,
+        },
+        "inLanguage": "en",
+      },
+    ],
+  };
+
   return (
     <Layout>
+      <SEO
+        title="Girish Lade | Full-Stack Developer, UI/UX Designer & LadeStack Founder"
+        description="Explore the portfolio of Girish Balaso Lade, a UI/UX designer and full-stack developer creating privacy-conscious developer tools, web apps, and LadeStack products."
+        canonical="/"
+        schema={homeSchema}
+      />
       {/* Hero Section */}
       <section className="min-h-dvh flex items-center pt-24 md:pt-32">
         <div className="container-editorial px-6 md:px-12 lg:px-20 py-16 md:py-24">
@@ -171,8 +234,10 @@ export default function Index() {
                 <div className="aspect-[4/5] bg-cream-darker overflow-hidden">
                   <img
                     src={portraitMain}
-                    alt="Girish Lade portrait"
+                    alt="Girish Lade - Founder of LadeStack"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </ScrollReveal>

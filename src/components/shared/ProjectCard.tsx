@@ -38,6 +38,8 @@ export function ProjectCard({
           alt=""
           aria-hidden="true"
           className="project-card-image w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/10 transition-colors duration-500 flex items-center justify-center">

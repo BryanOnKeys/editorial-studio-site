@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/shared/SEO";
 
 const NotFound = () => {
   return (
     <Layout>
+      <SEO
+        title="Page Not Found (404)"
+        description="The requested page could not be found."
+        noindex={true}
+      />
       <section className="min-h-[70vh] flex items-center justify-center">
         <div className="container-editorial px-6 md:px-12 lg:px-20 text-center">
           <h1 className="text-ink mb-4">404</h1>

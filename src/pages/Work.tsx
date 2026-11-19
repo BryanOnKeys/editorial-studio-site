@@ -1,27 +1,66 @@
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { ProjectCard } from "@/components/shared/ProjectCard";
+import { SEO } from "@/components/shared/SEO";
+import { SITE_CONFIG, createBreadcrumbSchema } from "@/lib/seo-config";
 import { projects } from "@/data/projects";
 
 import northlightHero from "@/assets/projects/northlight-hero.jpg";
 import meridianHero from "@/assets/projects/meridian-hero.jpg";
 import emberHero from "@/assets/projects/ember-hero.jpg";
 import stillwaterHero from "@/assets/projects/stillwater-hero.jpg";
+import bharatLandHero from "@/assets/projects/bharat-land-hero.jpg";
+import swiftResumeHero from "@/assets/projects/swift-resume-hero.jpg";
+import lsImageCompressorHero from "@/assets/projects/ls-image-compressor-hero.jpg";
+import gamehubHero from "@/assets/projects/gamehub-hero.jpg";
 
 const projectImages: Record<string, string> = {
   "ladestack": northlightHero,
   "gb-coder": meridianHero,
   "ls-pdf": emberHero,
   "md2pdf": stillwaterHero,
-  "bharat-land-converter": northlightHero,
-  "swift-resume": meridianHero,
-  "ls-image-compressor": emberHero,
-  "gamehub": stillwaterHero,
+  "bharat-land-converter": bharatLandHero,
+  "swift-resume": swiftResumeHero,
+  "ls-image-compressor": lsImageCompressorHero,
+  "gamehub": gamehubHero,
 };
 
 export default function Work() {
+  const workSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${SITE_CONFIG.siteUrl}/work#webpage`,
+        "url": `${SITE_CONFIG.siteUrl}/work`,
+        "name": `Work & Selected Projects | ${SITE_CONFIG.name}`,
+        "description": "Featured developer tools, browser IDEs, document utilities, and web applications built by Girish Lade.",
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": projects.map((p, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": p.title,
+            "url": `${SITE_CONFIG.siteUrl}/work/${p.slug}`,
+            "description": p.overview,
+          })),
+        },
+      },
+      createBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Work", url: "/work" },
+      ]),
+    ],
+  };
+
   return (
     <Layout>
+      <SEO
+        title="Work & Portfolio | Selected Projects & Developer Tools"
+        description="Explore case studies and featured products created by Girish Lade: LadeStack, GB Coder, LS PDF, MD2PDF, Swift Resume, and privacy-conscious web utilities."
+        canonical="/work"
+        schema={workSchema}
+      />
       {/* Hero */}
       <section className="pt-32 md:pt-40 pb-16 md:pb-24">
         <div className="container-editorial px-6 md:px-12 lg:px-20">

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId } from "react";
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { ArrowRight, Check } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 import { cn } from "@/lib/utils";
@@ -32,18 +33,18 @@ const deliverableScopes = [
 
 interface SelectionButtonProps {
   selected: boolean;
-  onClick: () => void;
+  value: string;
   children: React.ReactNode;
 }
 
-function SelectionButton({ selected, onClick, children }: SelectionButtonProps) {
+function SelectionButton({ selected, value, children }: SelectionButtonProps) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
+    <RadioGroupPrimitive.Item
+      value={value}
       className={cn(
         "w-full text-left px-5 py-4 border transition-all duration-300",
         "hover:border-ink hover:bg-cream-dark",
+        "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",
         selected
           ? "border-ink bg-cream-dark"
           : "border-divider bg-transparent"
@@ -53,9 +54,9 @@ function SelectionButton({ selected, onClick, children }: SelectionButtonProps) 
         <span className={cn("text-sm", selected ? "text-ink" : "text-ink-light")}>
           {children}
         </span>
-        {selected && <Check size={16} className="text-ink" />}
+        {selected && <Check size={16} className="text-ink" aria-hidden="true" />}
       </span>
-    </button>
+    </RadioGroupPrimitive.Item>
   );
 }
 
@@ -90,6 +91,7 @@ function AnimatedNumber({ value }: { value: number }) {
 }
 
 export function InvestmentEstimator() {
+  const labelId = useId();
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const [selectedStage, setSelectedStage] = useState<string | null>(null);
   const [selectedTimeline, setSelectedTimeline] = useState<string | null>(null);
@@ -145,84 +147,108 @@ export function InvestmentEstimator() {
             {/* Project Type */}
             <ScrollReveal delay={100}>
               <div>
-                <p className="eyebrow mb-4">
-                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-ink text-cream text-xs mr-2">1</span>
+                <p id={`${labelId}-project-type`} className="eyebrow mb-4">
+                  <span aria-hidden="true" className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-ink text-cream text-xs mr-2">1</span>
                   Project Type
                 </p>
-                <div className="space-y-2">
+                <RadioGroupPrimitive.Root
+                  aria-labelledby={`${labelId}-project-type`}
+                  orientation="vertical"
+                  value={selectedType ?? ""}
+                  onValueChange={setSelectedType}
+                  className="space-y-2"
+                >
                   {projectTypes.map((type) => (
                     <SelectionButton
                       key={type.id}
                       selected={selectedType === type.id}
-                      onClick={() => setSelectedType(type.id)}
+                      value={type.id}
                     >
                       {type.label}
                     </SelectionButton>
                   ))}
-                </div>
+                </RadioGroupPrimitive.Root>
               </div>
             </ScrollReveal>
 
             {/* Business Stage */}
             <ScrollReveal delay={200}>
               <div>
-                <p className="eyebrow mb-4">
-                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-ink text-cream text-xs mr-2">2</span>
+                <p id={`${labelId}-business-stage`} className="eyebrow mb-4">
+                  <span aria-hidden="true" className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-ink text-cream text-xs mr-2">2</span>
                   Business Stage
                 </p>
-                <div className="space-y-2">
+                <RadioGroupPrimitive.Root
+                  aria-labelledby={`${labelId}-business-stage`}
+                  orientation="vertical"
+                  value={selectedStage ?? ""}
+                  onValueChange={setSelectedStage}
+                  className="space-y-2"
+                >
                   {businessStages.map((stage) => (
                     <SelectionButton
                       key={stage.id}
                       selected={selectedStage === stage.id}
-                      onClick={() => setSelectedStage(stage.id)}
+                      value={stage.id}
                     >
                       {stage.label}
                     </SelectionButton>
                   ))}
-                </div>
+                </RadioGroupPrimitive.Root>
               </div>
             </ScrollReveal>
 
             {/* Timeline */}
             <ScrollReveal delay={300}>
               <div>
-                <p className="eyebrow mb-4">
-                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-ink text-cream text-xs mr-2">3</span>
+                <p id={`${labelId}-timeline`} className="eyebrow mb-4">
+                  <span aria-hidden="true" className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-ink text-cream text-xs mr-2">3</span>
                   Timeline
                 </p>
-                <div className="space-y-2">
+                <RadioGroupPrimitive.Root
+                  aria-labelledby={`${labelId}-timeline`}
+                  orientation="vertical"
+                  value={selectedTimeline ?? ""}
+                  onValueChange={setSelectedTimeline}
+                  className="space-y-2"
+                >
                   {timelines.map((timeline) => (
                     <SelectionButton
                       key={timeline.id}
                       selected={selectedTimeline === timeline.id}
-                      onClick={() => setSelectedTimeline(timeline.id)}
+                      value={timeline.id}
                     >
                       {timeline.label}
                     </SelectionButton>
                   ))}
-                </div>
+                </RadioGroupPrimitive.Root>
               </div>
             </ScrollReveal>
 
             {/* Deliverables Scope */}
             <ScrollReveal delay={400}>
               <div>
-                <p className="eyebrow mb-4">
-                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-ink text-cream text-xs mr-2">4</span>
+                <p id={`${labelId}-deliverables`} className="eyebrow mb-4">
+                  <span aria-hidden="true" className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-ink text-cream text-xs mr-2">4</span>
                   Deliverables
                 </p>
-                <div className="space-y-2">
+                <RadioGroupPrimitive.Root
+                  aria-labelledby={`${labelId}-deliverables`}
+                  orientation="vertical"
+                  value={selectedScope ?? ""}
+                  onValueChange={setSelectedScope}
+                  className="space-y-2"
+                >
                   {deliverableScopes.map((scope) => (
                     <SelectionButton
                       key={scope.id}
                       selected={selectedScope === scope.id}
-                      onClick={() => setSelectedScope(scope.id)}
+                      value={scope.id}
                     >
                       {scope.label}
                     </SelectionButton>
                   ))}
-                </div>
+                </RadioGroupPrimitive.Root>
               </div>
             </ScrollReveal>
           </div>

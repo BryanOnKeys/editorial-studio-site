@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/shared/ScrollReveal";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/shared/SEO";
+import { SITE_CONFIG, createBreadcrumbSchema } from "@/lib/seo-config";
 import {
   Accordion,
   AccordionContent,
@@ -113,8 +115,47 @@ const faqs = [
 ];
 
 export default function Services() {
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${SITE_CONFIG.siteUrl}/services#service`,
+        "name": "Design & Engineering Services by Girish Lade",
+        "provider": {
+          "@type": "Person",
+          "name": SITE_CONFIG.name,
+          "url": SITE_CONFIG.siteUrl,
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Development & Design Capabilities",
+          "itemListElement": services.map((s, index) => ({
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": s.title,
+              "description": s.description,
+            },
+            "position": index + 1,
+          })),
+        },
+      },
+      createBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Services", url: "/services" },
+      ]),
+    ],
+  };
+
   return (
     <Layout>
+      <SEO
+        title="Services & Capabilities | UI/UX Design, React & Developer Tools"
+        description="Comprehensive engineering & design capabilities: UI/UX interface design, frontend web development (React, TypeScript), product prototyping, and developer tooling."
+        canonical="/services"
+        schema={servicesSchema}
+      />
       {/* Hero */}
       <section className="pt-32 md:pt-40 pb-16 md:pb-24">
         <div className="container-editorial px-6 md:px-12 lg:px-20">
